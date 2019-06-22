@@ -39,7 +39,7 @@ namespace NBA.Service.Services
 
         public void FilterPlayersByYears(Player player,int years)
         {
-            if (player.PlayingSince == years || player.PlayingSince > years)
+            if (player.PlayingSince == years || player.PlayingSince < years)
             {
                 Console.WriteLine("There is a player with less or equal years to : " + years);
                 Console.WriteLine("Name : " + player.Name);
