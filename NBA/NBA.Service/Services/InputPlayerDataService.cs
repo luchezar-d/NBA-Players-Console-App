@@ -46,7 +46,7 @@ namespace NBA.Service.Services
             {
                 Console.WriteLine("A player has less or equal years to : " + years);
                 Console.WriteLine("Current year is : " + CurrentYear);
-                Console.WriteLine("Player has been playing for " + years + " years");
+                Console.WriteLine("Player has been playing for " + NbaPlayerYears + " years");
                 Console.WriteLine("Name : " + player.Name);
                 Console.WriteLine("Playing since : " + player.PlayingSince);
             }
