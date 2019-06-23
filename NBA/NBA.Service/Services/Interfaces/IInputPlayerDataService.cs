@@ -11,6 +11,5 @@ namespace NBA.Service.Services.Interfaces
     {
         void FilterPlayersByRating(Player player,int rating);
         void FilterPlayersByYears(Player player,int years);
-        //void AddCSVPath(string path);
     }
 }

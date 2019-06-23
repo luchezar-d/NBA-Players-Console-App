@@ -16,7 +16,6 @@ namespace NBA.Service.Services
         public void LoadJson()
         {
             string filepath = "SchemaList.json";
-            string readResult = string.Empty;
             string writeResult = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
             {
@@ -63,8 +62,10 @@ namespace NBA.Service.Services
 
 
                     Console.WriteLine("==========================================================");
+                    
                 }
 
+                //File.WriteAllText(filepath, JsonData);
             }
         }
     }
