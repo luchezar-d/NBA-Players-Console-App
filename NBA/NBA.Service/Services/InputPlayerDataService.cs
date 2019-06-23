@@ -11,27 +11,28 @@ namespace NBA.Service.Services
     public class InputPlayerDataService : IInputPlayerDataService
     {
         List<Player> sortPlayer = new List<Player>();
+        readonly int CurrentYear = 2019;
 
         public void FilterPlayersByRating(Player player,int rating)
         {
+            sortPlayer.Add(player);
+
+            var ratingDesc = from x in sortPlayer
+                             where rating <= player.Rating
+                             orderby x descending
+                             select x;
+            
             if (player.Rating == rating || player.Rating > rating)
             {
-                sortPlayer.Add(player);
-
-                var ratingDesc = from x in sortPlayer
-                                 where rating >= player.Rating
-                                 orderby x descending
-                                 select x;
-
+                
                 foreach (var item in ratingDesc)
                 {
                     Console.WriteLine("There is a player with equal or greater rating than : " + rating);
                     Console.WriteLine("Name : " + player.Name);
                     Console.WriteLine("Rating : " + player.Rating);
                 }
-
             }
-            if (player.Rating > rating)
+            else
             {
                 Console.WriteLine("There isn't a player with equal or greater rating than : " + rating);
             }
@@ -39,17 +40,19 @@ namespace NBA.Service.Services
 
         public void FilterPlayersByYears(Player player,int years)
         {
-            if (player.PlayingSince == years || player.PlayingSince < years)
+            int NbaPlayerYears = CurrentYear - player.PlayingSince;
+            
+            if (NbaPlayerYears == years || NbaPlayerYears < years)
             {
-                Console.WriteLine("There is a player with less or equal years to : " + years);
+                Console.WriteLine("A player has less or equal years to : " + years);
+                Console.WriteLine("Current year is : " + CurrentYear);
+                Console.WriteLine("Player has been playing for " + years + " years");
                 Console.WriteLine("Name : " + player.Name);
-                Console.WriteLine("Playing Since : " + player.PlayingSince);
-                Console.WriteLine("Position : " + player.Position);
-                Console.WriteLine("Rating : " + player.Rating);
+                Console.WriteLine("Playing since : " + player.PlayingSince);
             }
             else
             {
-                Console.WriteLine("There isn't a player with less or equal years to  : " + years);
+                Console.WriteLine("A player doesn't have less or equal years to : " + years);
             }
         }
     }

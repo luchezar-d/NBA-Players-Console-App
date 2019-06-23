@@ -48,15 +48,18 @@ namespace NBA.Service.Services
 
                     Console.WriteLine("---------------------------------------------------------------");
                     Console.WriteLine("Enter years : ");
+
                     int years = Convert.ToInt32(Console.ReadLine());
+                    
 
                     Console.WriteLine("Enter rating : ");
                     int rating = Convert.ToInt32(Console.ReadLine());
 
                     Console.WriteLine("---------------------------------------------------------------");
-                    service.FilterPlayersByRating(player, rating);
-                    Console.WriteLine("---------------------------------------------------------------");
                     service.FilterPlayersByYears(player, years);
+                    Console.WriteLine("---------------------------------------------------------------");
+                    service.FilterPlayersByRating(player, rating);
+                    
 
 
                     Console.WriteLine("==========================================================");
