@@ -8,10 +8,18 @@ using System.Threading.Tasks;
 
 namespace NBA.Service.Services
 {
+    /*The service takes the input which is a player and a 
+     * rating and checks if a player meets some requirements
+     */
+     
     public class InputPlayerDataService : IInputPlayerDataService
     {
         List<Player> sortPlayer = new List<Player>();
         readonly int CurrentYear = 2019;
+
+        /*The method gets some input(player and rating),
+         * filters the players by rating and sorts the using a LINQ query
+         */
 
         public void FilterPlayersByRating(Player player,int rating)
         {
@@ -37,6 +45,11 @@ namespace NBA.Service.Services
                 Console.WriteLine("There isn't a player with equal or greater rating than : " + rating);
             }
         }
+
+        /*The method gets some input(player and years),
+         * calculates the year a player has played in the NBA
+         * and filters via some requirements
+         */
 
         public void FilterPlayersByYears(Player player,int years)
         {

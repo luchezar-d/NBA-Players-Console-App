@@ -13,6 +13,14 @@ namespace NBA.Service.Services
 {
     public class PlayerService : IPlayerService
     {
+
+        /*
+         * The method gets a JSON file via filepath, using Newtonsoft.Json converts
+         * the text from the file into and Object and Deserializes it casting it to 
+         * the model Player. The method provides the option for input and by instantiating
+         * the InputPlayerDataService the method manipulates the input returning some output.
+         */
+
         public void LoadJson()
         {
             string filepath = "SchemaList.json";
@@ -64,6 +72,9 @@ namespace NBA.Service.Services
                     Console.WriteLine("==========================================================");
                     
                 }
+                /*
+                 * Error while trying to save
+                 */
 
                 //File.WriteAllText(filepath, JsonData);
             }
